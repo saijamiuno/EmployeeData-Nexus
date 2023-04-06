@@ -25,6 +25,7 @@ import UsersTable from "./UsersTable";
 import UserDetails from "./routes/UserDetails";
 import HomePage from "./HomePage";
 import Dashboard from "./Dashboard";
+import Login from "./Login";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -55,40 +56,28 @@ const items = [
   ]),
 ];
 
-const { Header, Footer, Sider, Content } = Layout;
-const { TextArea } = Input;
+const { Header } = Layout;
 
 const App = () => {
   const [active, setActive] = useState("9");
 
-  const onClick = (e) => {
-    console.log("click ", e);
-  };
-  const handleSubMenu = (e) => {
-    setActive(e.key);
-  };
-  const addForm = () => {
-    setActive("g2");
-  };
   return (
     <>
-      <Header>
-          <Headers/>
+     
+     <Header>
+     <Headers/>
         </Header>
-        
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/" element={<Login />} />
+          <Route exact path="/homePage" element={<HomePage />} />
           <Route path="/addUser" element={<Form1 />} />
           <Route path="/usersTable" element={<UsersTable />} />
           <Route path="/getUserDetails/:id" element={<UserDetails />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
-
-      <Layout>
-      
-      </Layout>
+ 
     </>
   );
 };

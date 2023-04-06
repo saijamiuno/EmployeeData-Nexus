@@ -13,6 +13,7 @@ import {
 } from "antd";
 import googleLoading from "./googleLoading.json";
 import moment from "moment";
+import Headers from "./Headers";
 
 const { TextArea } = Input;
 
@@ -55,6 +56,7 @@ export default function Form1() {
 
   return (
     <div>
+     
       <Col span={22} style={{ marginTop: "20px" }}>
         <Row justify={"end"}>
           <Button
@@ -78,18 +80,54 @@ export default function Form1() {
                 onFinish={onSubmitForm}
                 id="myForm"
               >
-                <Form.Item name="firstName" label="First Name ">
-                  <Input />
+                <Form.Item
+                  name="firstName"
+                  label="First Name "
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your firstName",
+                    },
+                  ]}
+                >
+                  <Input placeholder="firstName" />
                 </Form.Item>
-                <Form.Item name="lastName" label="Last Name ">
-                  <Input />
+                <Form.Item
+                  name="lastName"
+                  label="Last Name "
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your lastName",
+                    },
+                  ]}
+                >
+                  <Input placeholder="lastName" />
                 </Form.Item>
 
-                <Form.Item name="email" label="Email ID">
-                  <Input type="email" />
+                <Form.Item
+                  name="email"
+                  label="Email ID"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your email",
+                    },
+                  ]}
+                >
+                  <Input type="email" placeholder="email" />
                 </Form.Item>
 
-                <Form.Item name="gender" label="Gender">
+                <Form.Item
+                  name="gender"
+                  label="Gender"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your gender",
+                    },
+                  ]}
+                >
                   <TreeSelect
                     treeData={[
                       {
@@ -104,7 +142,16 @@ export default function Form1() {
                   />
                 </Form.Item>
 
-                <Form.Item name="designation" label="Designation">
+                <Form.Item
+                  name="designation"
+                  label="Designation"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your designation",
+                    },
+                  ]}
+                >
                   <TreeSelect
                     treeData={[
                       {
@@ -154,11 +201,29 @@ export default function Form1() {
                     ]}
                   />
                 </Form.Item>
-                <Form.Item name="phone" label="Mobile Phone">
-                  <Input type="number" />
+                <Form.Item
+                  name="phone"
+                  label="Mobile Phone"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your phone",
+                    },
+                  ]}
+                >
+                  <Input type="number" placeholder="phone" />
                 </Form.Item>
 
-                <Form.Item name="dob" label="Date of Birth">
+                <Form.Item
+                  name="dob"
+                  label="Date of Birth"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your dob",
+                    },
+                  ]}
+                >
                   <DatePicker format="DD/MM/YYYY" />
                 </Form.Item>
                 {show && (
@@ -167,8 +232,17 @@ export default function Form1() {
                     style={{ width: "200px", heigth: "200px" }}
                   />
                 )}
-                <Form.Item name="comments" label="Comments">
-                  <TextArea rows={4} />
+                <Form.Item
+                  name="comments"
+                  label="Comments"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your comments",
+                    },
+                  ]}
+                >
+                  <TextArea rows={4} placeholder=" Please Enter comments" />
                 </Form.Item>
 
                 {/* <Form.Item label="Upload" valuePropName="fileList">
@@ -185,13 +259,21 @@ export default function Form1() {
                     <Button
                       type="submit"
                       htmlType="submit"
-                      style={{ width: "144px" }}
+                      style={{
+                        width: "144px",
+                        backgroundColor: "#0958d9",
+                        color: "#fff",
+                      }}
                     >
                       Submit
                     </Button>
                     <Button
                       onClick={() => setShow(!show)}
-                      style={{ width: "144px" }}
+                      style={{
+                        width: "144px",
+                        backgroundColor: "#0958d9",
+                        color: "#fff",
+                      }}
                     >
                       Show Animation
                     </Button>

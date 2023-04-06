@@ -126,7 +126,6 @@ export default function UsersTable(props) {
   return (
     <>
       <Col span={24} className="fireFox">
-        <Headers/>
         <Row justify="space-between" gutter={[16, 16]}>
           <Col span={12}>
             <div>
