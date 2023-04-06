@@ -155,7 +155,7 @@ export default function UsersTable(props) {
                     height: "36px",
                     marginRight: "12px",
                     marginTop: "22px",
-                    backgroundColor: "#fe6101",
+                    backgroundColor: "#fff",
                     color: "#000",
                     border: "#fe6101",
                   }}
