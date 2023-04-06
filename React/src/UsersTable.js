@@ -6,6 +6,7 @@ import {
   DeleteOutlined,
   PlusOutlined,
 } from "@ant-design/icons";
+import Headers from "./Headers";
 
 export default function UsersTable(props) {
   const [users, setUsers] = useState([]);
@@ -125,6 +126,7 @@ export default function UsersTable(props) {
   return (
     <>
       <Col span={24} className="fireFox">
+        <Headers/>
         <Row justify="space-between" gutter={[16, 16]}>
           <Col span={12}>
             <div>
@@ -155,8 +157,8 @@ export default function UsersTable(props) {
                     height: "36px",
                     marginRight: "12px",
                     marginTop: "22px",
-                    backgroundColor: "#fe6101",
-                    color: "#000",
+                    backgroundColor: "#0050b3",
+                    color: "#fff",
                     border: "#fe6101",
                   }}
                   onClick={()=>window.location.href="/addUser"}
