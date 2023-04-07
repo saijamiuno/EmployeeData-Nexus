@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Table, Popover, Row, Col, Button, Popconfirm } from "antd";
+import { Table, Popover, Row, Col, Button, Popconfirm, Input } from "antd";
 import {
   EllipsisOutlined,
   DeleteOutlined,
@@ -10,6 +10,7 @@ import Headers from "./Headers";
 
 export default function UsersTable(props) {
   const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     getUsersData();
@@ -148,6 +149,15 @@ export default function UsersTable(props) {
           <Col span={12}>
             <Row gutter={[16, 16]} justify="end">
               <Col>
+                <Input
+                  style={{ marginTop: "25px" }}
+                  placeholder="Search..."
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
+                />
+              </Col>
+              <Col>
                 <Button
                   style={{
                     minWidth: "160px",
@@ -160,7 +170,7 @@ export default function UsersTable(props) {
                     color: "#fff",
                     border: "#fe6101",
                   }}
-                  onClick={()=>window.location.href="/addUser"}
+                  onClick={() => (window.location.href = "/addUser")}
                 >
                   <PlusOutlined />
                   Add User
@@ -170,7 +180,18 @@ export default function UsersTable(props) {
           </Col>
         </Row>
       </Col>
-      <Table dataSource={users} columns={colums} />
+      <Table
+        dataSource={
+          search.length > 0
+            ? users.filter(
+                (e) =>
+                  e.firstName?.indexOf(search) > -1 ||
+                  e.firstName?.toUpperCase()?.indexOf(search) > -1
+              )
+            : users
+        }
+        columns={colums}
+      />
     </>
   );
 }
