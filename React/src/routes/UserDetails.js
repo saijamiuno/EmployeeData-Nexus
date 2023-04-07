@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import "../App.css"
+import "../App.css";
 
 export default function UserDetails(props) {
   const { id } = useParams();
@@ -19,15 +19,30 @@ export default function UserDetails(props) {
   }, []);
 
   return (
-    <div>
-      <h1>User Details</h1>
-      <p>First Name: {user.firstName}</p>
-      <p>Last Name: {user.lastName}</p>
-      <p>Phone Number: {user.phone}</p>
-      <p>Email: {user.email}</p>
-      <p>Date Of Birth: {user.dob}</p>
-      <p>Designation: {user.designation}</p>
-      <p>Comments: {user.comments}</p>
+    <div className="user-details-container">
+      <div className="user-details-card">
+        <div className="card-body">
+          <h1 className="card-title">User Details</h1>
+          <p>
+            <strong>Name:</strong> {user.firstName} {user.lastName}
+          </p>
+          <p>
+            <strong>Email:</strong> {user.email}
+          </p>
+          <p>
+            <strong>Phone:</strong> {user.phone}
+          </p>
+          <p>
+            <strong>Date of Birth:</strong> {user.dob}
+          </p>
+          <p>
+            <strong>Designation:</strong> {user.designation}
+          </p>
+          <p>
+            <strong>Comments:</strong> {user.comments}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
