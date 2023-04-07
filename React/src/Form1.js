@@ -48,7 +48,8 @@ export default function Form1() {
 
     if (response.status === 200) {
       alert("Your Response is Saved!!!!!!!!!");
-      // onResetValues();
+      onResetValues();
+      window.location.href = "/usersTable";
     } else {
       alert("Data Not Submited");
     }
@@ -56,7 +57,6 @@ export default function Form1() {
 
   return (
     <div>
-     
       <Col span={22} style={{ marginTop: "20px" }}>
         <Row justify={"end"}>
           <Button
