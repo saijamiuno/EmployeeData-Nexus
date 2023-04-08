@@ -26,6 +26,7 @@ import UserDetails from "./routes/UserDetails";
 import HomePage from "./HomePage";
 import Dashboard from "./Dashboard";
 import Login from "./Login";
+import EditUser from "./EditUser";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -74,6 +75,7 @@ const App = () => {
           <Route path="/addUser" element={<Form1 />} />
           <Route path="/usersTable" element={<UsersTable />} />
           <Route path="/getUserDetails/:id" element={<UserDetails />} />
+          <Route path="/updateUserDetails/:id" element={<EditUser />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>

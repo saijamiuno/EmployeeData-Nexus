@@ -22,6 +22,10 @@ export default function UsersTable(props) {
     console.log(data, "data");
   };
 
+  const editUser = async (id) => {
+    window.location.href = window.location.href = `/updateUserDetails/${id}`;
+  };
+
   const deleteItem = async (id) => {
     await axios
       .delete(`/deleteUserDetails/${id}`)
@@ -83,35 +87,38 @@ export default function UsersTable(props) {
       width: "60px",
       dataIndex: "_id",
       key: "_id",
-      render: (id) => {
+      render: (_id) => {
         return (
           <Popover
             placement="left"
             trigger="hover"
             content={
               <Row className="popovergrid">
-                {/* <Col span={24} style={{ width: "10px" }}>
-                  <Button className="popoveroptions">
-                    <span className="invoice-download">
-                      <Link to={"/soDetails" + "/" + id}>
-                        <ProfileOutlined className="mddelete" /> Details
-                      </Link>
-                    </span>
-                  </Button>
-                </Col> */}
                 <Col span={24}>
                   <Button className="popoveroptions">
                     <Popconfirm
                       title="Are you sure？"
                       okText="Yes"
                       cancelText="No"
-                      onConfirm={() => deleteItem(id)}
+                      onConfirm={() => deleteItem(_id)}
                       showArrow={true}
                     >
                       <span>
                         <DeleteOutlined className="mddelete" /> Delete
                       </span>
                     </Popconfirm>
+                  </Button>
+                </Col>
+                <Col span={24}>
+                  <Button
+                    onClick={() => {
+                      editUser(_id);
+                    }}
+                    className="popoveroptions"
+                  >
+                    <span>
+                      <DeleteOutlined className="mddelete" /> Edit
+                    </span>
                   </Button>
                 </Col>
               </Row>
