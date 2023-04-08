@@ -193,7 +193,11 @@ export default function UsersTable(props) {
             ? users.filter(
                 (e) =>
                   e.firstName?.indexOf(search) > -1 ||
-                  e.firstName?.toUpperCase()?.indexOf(search) > -1
+                  e.firstName?.toUpperCase()?.indexOf(search) > -1 ||
+                  e.firstName?.toLowerCase()?.indexOf(search) > -1 ||
+                  e.lastName?.indexOf(search) > -1 ||
+                  e.lastName?.toUpperCase()?.indexOf(search) > -1 ||
+                  e.lastName?.toLowerCase()?.indexOf(search) > -1
               )
             : users
         }
