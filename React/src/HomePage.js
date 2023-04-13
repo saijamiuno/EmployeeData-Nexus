@@ -76,18 +76,16 @@ export default function HomePage(props) {
           itemsToScroll={1}
         >
           {data.map((e) => (
-            <Col span={24}>
-              <Card>
-                <div style={{ textAlign: "center" }}>
-                  <Space wrap size={16}>
-                    <Avatar size={64} icon={<UserOutlined />} />
-                  </Space>
-                  <Col span={24}> {e.name}</Col>
-                  <Col span={24}> {e.age}</Col>
-                  <Col span={24}> {e.address}</Col>
-                </div>
-              </Card>
-            </Col>
+            <Card hoverable>
+              <div style={{ textAlign: "center" }}>
+                <Space wrap size={16}>
+                  <Avatar size={64} icon={<UserOutlined />} />
+                </Space>
+                <Col span={24}> {e.name}</Col>
+                <Col span={24}> {e.age}</Col>
+                <Col span={24}> {e.address}</Col>
+              </div>
+            </Card>
           ))}
         </Carousel>
       </Col>
