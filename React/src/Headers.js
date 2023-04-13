@@ -4,30 +4,32 @@ import { Col, Row, Button } from "antd";
 export default function Headers(props) {
   return (
     <Col span={24}>
-      <div style={{ backgroundColor: "#13c2c2", height: "60px" }}>
+      <div style={{ backgroundColor: "#8d99ae", height: "60px" }}>
         <Row style={{ justifyContent: "right" }}>
           <Col span={3} id="nav-links-container">
             <Button
               style={{
-                backgroundColor: "#13c2c2",
+                backgroundColor: "#8d99ae",
                 color: "#000",
                 border: "0px",
-                fontSize:"20px",
-                marginTop:"10px"
+                fontWeight: "600",
+                fontSize: "20px",
+                marginTop: "10px",
               }}
               onClick={() => (window.location.href = "/dashboard")}
             >
-             DASHBOARD
+              DASHBOARD
             </Button>
           </Col>
           <Col span={2} id="nav-links-container">
             <Button
               style={{
-                backgroundColor: "#13c2c2",
+                backgroundColor: "#8d99ae",
                 color: "#000",
                 border: "0px",
-                fontSize:"20px",
-                marginTop:"10px"
+                fontSize: "20px",
+                fontWeight: "600",
+                marginTop: "10px",
               }}
               onClick={() => (window.location.href = "/homePage")}
             >
@@ -37,11 +39,12 @@ export default function Headers(props) {
           <Col span={2}>
             <Button
               style={{
-                backgroundColor: "#13c2c2",
+                backgroundColor: "#8d99ae",
                 color: "#000",
                 border: "0px",
-                fontSize:"20px",
-                marginTop:"10px"
+                fontSize: "20px",
+                fontWeight: "600",
+                marginTop: "10px",
               }}
               onClick={() => (window.location.href = "/usersTable")}
             >
