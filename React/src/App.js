@@ -64,13 +64,14 @@ const App = () => {
 
   return (
     <>
-     
-     <Header>
-     <Headers/>
+      {window.location.pathname !== "/" && (
+        <Header>
+          <Headers />
         </Header>
+      )}
       <BrowserRouter>
         <Routes>
-        <Route exact path="/" element={<Login />} />
+          <Route exact path="/" element={<Login />} />
           <Route exact path="/homePage" element={<HomePage />} />
           <Route path="/addUser" element={<Form1 />} />
           <Route path="/usersTable" element={<UsersTable />} />
@@ -79,7 +80,6 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
- 
     </>
   );
 };
