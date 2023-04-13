@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row, Button } from "antd";
+import { Col, Row, Button, Divider, Card } from "antd";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "../App.css";
@@ -21,35 +21,59 @@ export default function UserDetails(props) {
 
   return (
     <Col span={24}>
-      <Row>
-        <Col span={22}>
-          <div className="user-details-container">
-            <div className="user-details-card">
-              <div className="card-body">
-                <h1 className="card-title">User Details</h1>
-                <p>
-                  <strong>Name:</strong> {user.firstName} {user.lastName}
-                </p>
-                <p>
-                  <strong>Email:</strong> {user.email}
-                </p>
-                <p>
-                  <strong>Phone:</strong> {user.phone}
-                </p>
-                <p>
-                  <strong>Date of Birth:</strong> {user.dob}
-                </p>
-                <p>
-                  <strong>Designation:</strong> {user.designation}
-                </p>
-                <p>
-                  <strong>Comments:</strong> {user.comments}
-                </p>
-              </div>
-            </div>
-          </div>
+      <Row justify={"space-between"}>
+        <Col span={12} offset={8} style={{ justifyContent: "center" }}>
+          <Card
+            style={{
+              width: "50vh",
+              marginTop: "12px",
+              backgroundColor: "#ffa700",
+            }}
+            headStyle={{ fontWeight: "bold", fontSize: "18px" }}
+            title="User Information"
+          >
+            <Row justify="space-between">
+              <Col>First Name:</Col>
+              <Col>
+                <b style={{ textTransform: "capitalize" }}>{user.firstName}</b>
+              </Col>
+              <Divider style={{ margin: "15px 0" }} />
+              <Col>Last Name:</Col>
+              <Col>
+                <b style={{ textTransform: "capitalize" }}>{user.lastName}</b>
+              </Col>
+              <Divider style={{ margin: "15px 0" }} />
+              <Col>Email:</Col>
+              <Col>
+                <b style={{ textTransform: "capitalize" }}>{user.email}</b>
+              </Col>
+              <Divider style={{ margin: "15px 0" }} />
+              <Col>Phone:</Col>
+              <Col>
+                <b style={{ textTransform: "capitalize" }}>{user.phone}</b>
+              </Col>
+              <Divider style={{ margin: "15px 0" }} />
+              <Col>Date of Birth:</Col>
+              <Col>
+                <b style={{ textTransform: "capitalize" }}>{user.dob}</b>
+              </Col>
+              <Divider style={{ margin: "15px 0" }} />
+              <Col>Designation:</Col>
+              <Col>
+                <b style={{ textTransform: "capitalize" }}>
+                  {user.designation}
+                </b>
+              </Col>
+              <Divider style={{ margin: "15px 0" }} />
+              <Col>Comments:</Col>
+              <Col>
+                <b style={{ textTransform: "capitalize" }}>{user.comments}</b>
+              </Col>
+              <Divider style={{ margin: "15px 0" }} />
+            </Row>
+          </Card>
         </Col>
-        <Col span={2}>
+        <Col span={4}>
           <Button
             style={{
               backgroundColor: "#0958d9",
