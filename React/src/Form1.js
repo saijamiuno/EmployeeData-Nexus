@@ -226,12 +226,7 @@ export default function Form1() {
                 >
                   <DatePicker format="DD/MM/YYYY" />
                 </Form.Item>
-                {show && (
-                  <Lottie
-                    options={defaultOptions}
-                    style={{ width: "200px", heigth: "200px" }}
-                  />
-                )}
+
                 <Form.Item
                   name="comments"
                   label="Comments"
@@ -266,16 +261,6 @@ export default function Form1() {
                       }}
                     >
                       Submit
-                    </Button>
-                    <Button
-                      onClick={() => setShow(!show)}
-                      style={{
-                        width: "144px",
-                        backgroundColor: "#0958d9",
-                        color: "#fff",
-                      }}
-                    >
-                      Show Animation
                     </Button>
                   </Form.Item>
                 </center>
