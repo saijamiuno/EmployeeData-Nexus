@@ -95,7 +95,10 @@ export default function UsersTable(props) {
             content={
               <Row className="popovergrid">
                 <Col span={24}>
-                  <Button className="popoveroptions">
+                  <Button className="popoveroptions"
+                  style={{backgroundColor:"red",color:"#fff"}}
+                  
+                  >
                     <Popconfirm
                       title="Are you sure？"
                       okText="Yes"
@@ -115,8 +118,9 @@ export default function UsersTable(props) {
                       editUser(_id);
                     }}
                     className="popoveroptions"
+                    style={{backgroundColor:"green",color:"#fff",width:"90px"}}
                   >
-                    <span>
+                    <span >
                       <DeleteOutlined className="mddelete" /> Edit
                     </span>
                   </Button>
@@ -138,17 +142,17 @@ export default function UsersTable(props) {
           <Col span={12}>
             <div>
               <>
-                <h1
+                <h2
                   style={{
                     fontSize: "30px",
                     marginLeft: "10px",
                   }}
                 >
-                  Users{" "}
+                 USERS{" "}
                   <span style={{ fontSize: "20px", color: "#fe6101" }}>
                     ({users.length})
                   </span>
-                </h1>
+                </h2>
               </>
             </div>
           </Col>
