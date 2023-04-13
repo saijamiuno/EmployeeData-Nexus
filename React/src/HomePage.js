@@ -77,7 +77,7 @@ export default function HomePage(props) {
         >
           {data.map((e) => (
             <Card hoverable>
-              <div style={{ textAlign: "center" }}>
+              <div style={{ textAlign: "center",height:"20vh"}}>
                 <Space wrap size={16}>
                   <Avatar size={64} icon={<UserOutlined />} />
                 </Space>
