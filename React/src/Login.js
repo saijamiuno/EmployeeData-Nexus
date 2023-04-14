@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row, Button, Checkbox, Form, Input, Card } from "antd";
-import WebFont from "webfontloader";
+import { Col, Row, Button, Checkbox, Form, Input, Card, Space } from "antd";
 import "./App.css";
 import login from "./Images/login.jpg";
 
@@ -15,9 +14,16 @@ function Login() {
   return (
     <div
       className="body"
+      // style={{
+      //   backgroundImage: `url(${login})`,
+      //   backgroundSize: "cover",
+      //   height: "100vh",
+      //   display: "flex",
+      //   alignItems: "center",
+      //   justifyContent: "center",
+      // }}
       style={{
-        backgroundImage: `url(${login})`,
-        backgroundSize: "cover",
+        backgroundColor: "#12181b",
         height: "100vh",
         display: "flex",
         alignItems: "center",
@@ -31,21 +37,31 @@ function Login() {
             <Card
               style={{
                 boxShadow: "0 4px 8px 0 rgba(0, 0, 8, 0.2)",
-                backgroundColor: "#bfbfbf",
+                backgroundColor: "#2a2d35",
                 border: "transparent",
               }}
             >
-              <span
+              <center
                 style={{
-                  marginLeft: "13vh",
                   fontSize: "30px",
                   fontWeight: "800",
                   fontFamily: "unset",
+                  color: "#fff",
                 }}
               >
-                LOGIN
-              </span>
+                Welcome Back
+              </center>
 
+              <center
+                style={{
+                  color: "#5c636d",
+                  fontSize: "16px",
+                  alignContent: "center",
+                }}
+              >
+                Login to continue
+              </center>
+              <br />
               <Form
                 name="basic"
                 initialValues={{
@@ -55,7 +71,9 @@ function Login() {
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
               >
-                <span style={{ fontSize: "18px" }}>Username</span>
+                <span style={{ fontSize: "18px", color: "#fff" }}>
+                  Username
+                </span>
                 <Form.Item
                   name="username"
                   rules={[
@@ -67,7 +85,9 @@ function Login() {
                 >
                   <Input />
                 </Form.Item>
-                <span style={{ fontSize: "18px" }}>Password</span>
+                <span style={{ fontSize: "18px", color: "#fff" }}>
+                  Password
+                </span>
                 <Form.Item
                   name="password"
                   rules={[
@@ -86,12 +106,14 @@ function Login() {
                     style={{
                       width: "100%",
                       backgroundColor: "#0958d9",
-                      color: "#fff",
+                      color: "#000",
+                      fontWeight: "bold",
                       border: "transparent",
+                      backgroundColor: "#fe6101 ",
                     }}
                     htmlType="submit"
                   >
-                    Submit
+                    Login
                   </Button>
                 </Form.Item>
               </Form>
