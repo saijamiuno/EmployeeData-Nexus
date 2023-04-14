@@ -13,7 +13,7 @@ function Login() {
 
   return (
     <div
-      className="body"
+      className="bodyy"
       // style={{
       //   backgroundImage: `url(${login})`,
       //   backgroundSize: "cover",
@@ -39,6 +39,7 @@ function Login() {
                 boxShadow: "0 4px 8px 0 rgba(0, 0, 8, 0.2)",
                 backgroundColor: "#c7c8cc",
                 border: "transparent",
+                marginTop:"25vh"
               }}
             >
               <center
