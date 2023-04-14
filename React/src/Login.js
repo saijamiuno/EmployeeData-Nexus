@@ -22,13 +22,13 @@ function Login() {
       //   alignItems: "center",
       //   justifyContent: "center",
       // }}
-      style={{
-        backgroundColor: "#12181b",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
+      // style={{
+      //   backgroundColor: "#12181b",
+      //   height: "100vh",
+      //   display: "flex",
+      //   alignItems: "center",
+      //   justifyContent: "center",
+      // }}
     >
       <Col span={24}>
         <Row>
@@ -37,7 +37,7 @@ function Login() {
             <Card
               style={{
                 boxShadow: "0 4px 8px 0 rgba(0, 0, 8, 0.2)",
-                backgroundColor: "#2a2d35",
+                backgroundColor: "#c7c8cc",
                 border: "transparent",
               }}
             >
@@ -46,7 +46,7 @@ function Login() {
                   fontSize: "30px",
                   fontWeight: "800",
                   fontFamily: "unset",
-                  color: "#fff",
+                  color: "#000",
                 }}
               >
                 Welcome Back
@@ -54,9 +54,10 @@ function Login() {
 
               <center
                 style={{
-                  color: "#5c636d",
+                  color: "#5e636d",
                   fontSize: "16px",
                   alignContent: "center",
+                  fontWeight: "bold",
                 }}
               >
                 Login to continue
@@ -71,7 +72,9 @@ function Login() {
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
               >
-                <span style={{ fontSize: "18px", color: "#fff" }}>
+                <span
+                  style={{ fontSize: "15px", color: "#000", fontWeight: "500" }}
+                >
                   Username
                 </span>
                 <Form.Item
@@ -85,7 +88,9 @@ function Login() {
                 >
                   <Input />
                 </Form.Item>
-                <span style={{ fontSize: "18px", color: "#fff" }}>
+                <span
+                  style={{ fontSize: "15px", color: "#000", fontWeight: "500" }}
+                >
                   Password
                 </span>
                 <Form.Item
