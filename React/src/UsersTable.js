@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Table, Popover, Row, Col, Button, Popconfirm } from "antd";
+import { Table, Popover, Row, Col, Button, Popconfirm, Input } from "antd";
 import {
   EllipsisOutlined,
   DeleteOutlined,
   PlusOutlined,
 } from "@ant-design/icons";
+import Headers from "./Headers";
 
 export default function UsersTable(props) {
   const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     getUsersData();
@@ -18,6 +20,10 @@ export default function UsersTable(props) {
     const { data } = await axios.get("/getUserDetails");
     setUsers(data);
     console.log(data, "data");
+  };
+
+  const editUser = async (id) => {
+    window.location.href = window.location.href = `/updateUserDetails/${id}`;
   };
 
   const deleteItem = async (id) => {
@@ -81,35 +87,42 @@ export default function UsersTable(props) {
       width: "60px",
       dataIndex: "_id",
       key: "_id",
-      render: (id) => {
+      render: (_id) => {
         return (
           <Popover
             placement="left"
             trigger="hover"
             content={
               <Row className="popovergrid">
-                {/* <Col span={24} style={{ width: "10px" }}>
-                  <Button className="popoveroptions">
-                    <span className="invoice-download">
-                      <Link to={"/soDetails" + "/" + id}>
-                        <ProfileOutlined className="mddelete" /> Details
-                      </Link>
-                    </span>
-                  </Button>
-                </Col> */}
                 <Col span={24}>
-                  <Button className="popoveroptions">
+                  <Button className="popoveroptions"
+                  style={{backgroundColor:"red",color:"#fff"}}
+                  
+                  >
                     <Popconfirm
                       title="Are you sure？"
                       okText="Yes"
                       cancelText="No"
-                      onConfirm={() => deleteItem(id)}
+                      onConfirm={() => deleteItem(_id)}
                       showArrow={true}
                     >
                       <span>
                         <DeleteOutlined className="mddelete" /> Delete
                       </span>
                     </Popconfirm>
+                  </Button>
+                </Col>
+                <Col span={24}>
+                  <Button
+                    onClick={() => {
+                      editUser(_id);
+                    }}
+                    className="popoveroptions"
+                    style={{backgroundColor:"green",color:"#fff",width:"90px"}}
+                  >
+                    <span >
+                      <DeleteOutlined className="mddelete" /> Edit
+                    </span>
                   </Button>
                 </Col>
               </Row>
@@ -129,23 +142,32 @@ export default function UsersTable(props) {
           <Col span={12}>
             <div>
               <>
-                <h1
+                <h2
                   style={{
                     fontSize: "30px",
                     marginLeft: "10px",
                   }}
                 >
-                  Users{" "}
+                 USERS{" "}
                   <span style={{ fontSize: "20px", color: "#fe6101" }}>
                     ({users.length})
                   </span>
-                </h1>
+                </h2>
               </>
             </div>
           </Col>
 
           <Col span={12}>
             <Row gutter={[16, 16]} justify="end">
+              <Col>
+                <Input
+                  style={{ marginTop: "25px" }}
+                  placeholder="Search..."
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
+                />
+              </Col>
               <Col>
                 <Button
                   style={{
@@ -155,11 +177,11 @@ export default function UsersTable(props) {
                     height: "36px",
                     marginRight: "12px",
                     marginTop: "22px",
-                    backgroundColor: "#fe6101",
-                    color: "#000",
+                    backgroundColor: "#0050b3",
+                    color: "#fff",
                     border: "#fe6101",
                   }}
-                  onClick={()=>window.location.href="/addUser"}
+                  onClick={() => (window.location.href = "/addUser")}
                 >
                   <PlusOutlined />
                   Add User
@@ -169,7 +191,22 @@ export default function UsersTable(props) {
           </Col>
         </Row>
       </Col>
-      <Table dataSource={users} columns={colums} />
+      <Table
+        dataSource={
+          search.length > 0
+            ? users.filter(
+                (e) =>
+                  e.firstName?.indexOf(search) > -1 ||
+                  e.firstName?.toUpperCase()?.indexOf(search) > -1 ||
+                  e.firstName?.toLowerCase()?.indexOf(search) > -1 ||
+                  e.lastName?.indexOf(search) > -1 ||
+                  e.lastName?.toUpperCase()?.indexOf(search) > -1 ||
+                  e.lastName?.toLowerCase()?.indexOf(search) > -1
+              )
+            : users
+        }
+        columns={colums}
+      />
     </>
   );
 }

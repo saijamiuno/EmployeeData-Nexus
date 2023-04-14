@@ -64,6 +64,18 @@
 .inputForm {
   background-color: #818;
 }
-.objects{
+.objects {
   padding: 3rem;
+}
+
+.user-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.user-details-card {
+  width: 50%;
+  margin: auto;
 }
