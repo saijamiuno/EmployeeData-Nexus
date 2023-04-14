@@ -52,11 +52,11 @@ export default function HomePage(props) {
   return (
     <div>
       <Col span={24}>
-        <img src={unosimple} style={{ width: "30%", height: "40%" }} />
+        {/* <img src={unosimple} style={{ width: "30%", height: "40%" }} /> */}
         {/* <h1>HomePage</h1> */}
       </Col>
       <Col span={24}>
-        <h2 style={{ textAlign: "center" }}>All CUSTOMERS</h2>
+        <h2 style={{ textAlign: "center" }}>All Users</h2>
       </Col>
       <Col>
         <Carousel
