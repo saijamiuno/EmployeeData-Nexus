@@ -1,45 +1,50 @@
 import React from "react";
 
 import { Col, Row, Button } from "antd";
-import { Link } from "react-router-dom";
 export default function Headers(props) {
   return (
     <Col span={24}>
-      <div style={{ backgroundColor: "#13c2c2", height: "60px" }}>
+      <div style={{ backgroundColor: "#8d99ae", height: "60px" }}>
         <Row style={{ justifyContent: "right" }}>
-          <Col span={2} id="nav-links-container">
+          <Col span={3} id="nav-links-container">
             <Button
               style={{
-                backgroundColor: "#13c2c2",
+                backgroundColor: "#8d99ae",
                 color: "#000",
                 border: "0px",
-                margin: "1rem",
+                fontWeight: "600",
+                fontSize: "20px",
+                marginTop: "10px",
               }}
               onClick={() => (window.location.href = "/dashboard")}
             >
-              Dashboard
+              DASHBOARD
             </Button>
           </Col>
           <Col span={2} id="nav-links-container">
             <Button
               style={{
-                backgroundColor: "#13c2c2",
+                backgroundColor: "#8d99ae",
                 color: "#000",
                 border: "0px",
-                margin: "1rem",
+                fontSize: "20px",
+                fontWeight: "600",
+                marginTop: "10px",
               }}
-              onClick={() => (window.location.href = "/")}
+              onClick={() => (window.location.href = "/homePage")}
             >
-              HOMEPAGE
+              HOME
             </Button>
           </Col>
           <Col span={2}>
             <Button
               style={{
-                backgroundColor: "#13c2c2",
+                backgroundColor: "#8d99ae",
                 color: "#000",
                 border: "0px",
-                margin: "1rem",
+                fontSize: "20px",
+                fontWeight: "600",
+                marginTop: "10px",
               }}
               onClick={() => (window.location.href = "/usersTable")}
             >

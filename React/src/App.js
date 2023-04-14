@@ -8,7 +8,7 @@ import {
   LinkedinOutlined,
   FormOutlined,
 } from "@ant-design/icons";
-import { Layout, Input, Menu } from "antd";
+import { Layout,  Switch, Button, Col, Row } from "antd";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Form1 from "./Form1";
@@ -25,6 +25,8 @@ import UsersTable from "./UsersTable";
 import UserDetails from "./routes/UserDetails";
 import HomePage from "./HomePage";
 import Dashboard from "./Dashboard";
+import Login from "./Login";
+import EditUser from "./EditUser";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -55,41 +57,89 @@ const items = [
   ]),
 ];
 
-const { Header, Footer, Sider, Content } = Layout;
-const { TextArea } = Input;
+const { Header } = Layout;
 
-const App = () => {
-  const [active, setActive] = useState("9");
+const App = (props) => {
+  console.log(props, "props");
+  const [darkMode, setDarkMode] = useState(false);
 
-  const onClick = (e) => {
-    console.log("click ", e);
-  };
-  const handleSubMenu = (e) => {
-    setActive(e.key);
-  };
-  const addForm = () => {
-    setActive("g2");
-  };
   return (
-    <>
-      <Header>
-          <Headers/>
-        </Header>
-        
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route path="/addUser" element={<Form1 />} />
-          <Route path="/usersTable" element={<UsersTable />} />
-          <Route path="/getUserDetails/:id" element={<UserDetails />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </BrowserRouter>
-
-      <Layout>
-      
-      </Layout>
-    </>
+    <div className={darkMode ? "darkMode" : "lightMode"}>
+      <>
+        {window.location.pathname !== "/" && (
+          <Header>
+            <Col span={24}>
+              <div style={{ backgroundColor: "#8d99ae", height: "60px" }}>
+                <Row style={{ justifyContent: "right" }}>
+                  <Col span={3} id="nav-links-container">
+                    <Button
+                      style={{
+                        backgroundColor: "#8d99ae",
+                        color: "#000",
+                        border: "0px",
+                        fontWeight: "600",
+                        fontSize: "20px",
+                        marginTop: "10px",
+                      }}
+                      onClick={() => (window.location.href = "/dashboard")}
+                    >
+                      DASHBOARD
+                    </Button>
+                  </Col>
+                  <Col span={2} id="nav-links-container">
+                    <Button
+                      style={{
+                        backgroundColor: "#8d99ae",
+                        color: "#000",
+                        border: "0px",
+                        fontSize: "20px",
+                        fontWeight: "600",
+                        marginTop: "10px",
+                      }}
+                      onClick={() => (window.location.href = "/homePage")}
+                    >
+                      HOME
+                    </Button>
+                  </Col>
+                  <Col span={2}>
+                    <Button
+                      style={{
+                        backgroundColor: "#8d99ae",
+                        color: "#000",
+                        border: "0px",
+                        fontSize: "20px",
+                        fontWeight: "600",
+                        marginTop: "10px",
+                      }}
+                      onClick={() => (window.location.href = "/usersTable")}
+                    >
+                      USERS
+                    </Button>
+                  </Col>
+                  <Switch
+                    style={{ justifyContent: "end", marginTop: "15px" }}
+                    onChange={() => {
+                      setDarkMode(!darkMode);
+                    }}
+                  />
+                </Row>
+              </div>
+            </Col>
+          </Header>
+        )}
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route exact path="/homePage" element={<HomePage />} />
+            <Route path="/addUser" element={<Form1 />} />
+            <Route path="/usersTable" element={<UsersTable />} />
+            <Route path="/getUserDetails/:id" element={<UserDetails />} />
+            <Route path="/updateUserDetails/:id" element={<EditUser />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </BrowserRouter>
+      </>
+    </div>
   );
 };
 
