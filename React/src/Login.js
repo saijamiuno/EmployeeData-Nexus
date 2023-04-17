@@ -107,7 +107,7 @@ function Login() {
 
                 <Form.Item>
                   <Button
-                    onClick={() => (window.location.href = "/homePage")}
+                    onClick={() => (window.location.href = "/dashboard")}
                     style={{
                       width: "100%",
                       backgroundColor: "#0958d9",
