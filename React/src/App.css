@@ -79,7 +79,7 @@
   width: 50%;
   margin: auto;
 }
-.lightMode {
+/* .lightMode {
   background-color: #f2f2f2;
   height: 100vh;
   overflow: hidden;
@@ -88,7 +88,7 @@
   background-color: #798086;
   height: 100vh;
   overflow: hidden;
-}
+} */
 
 .body {
   height: 100vh;

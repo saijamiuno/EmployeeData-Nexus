@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Col, Row, Button, Checkbox, Form, Input, Card, Space } from "antd";
+import React from "react";
+import { Col, Row, Button, Form, Input, Card} from "antd";
 import "./App.css";
-import login from "./Images/login.jpg";
 
 function Login() {
   const onFinish = (values) => {
