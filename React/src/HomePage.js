@@ -50,7 +50,7 @@ export default function HomePage(props) {
   ];
 
   return (
-    <div>
+    <div style={{marginTop:"80px"}}>
       <Col span={24}>
         {/* <img src={unosimple} style={{ width: "30%", height: "40%" }} /> */}
         {/* <h1>HomePage</h1> */}

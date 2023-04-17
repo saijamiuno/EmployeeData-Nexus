@@ -56,7 +56,7 @@ export default function Form1() {
   };
 
   return (
-    <div>
+    <div style={{marginTop:"80px"}}>
       <Col span={22} style={{ marginTop: "20px" }}>
         <Row justify={"end"}>
           <Button

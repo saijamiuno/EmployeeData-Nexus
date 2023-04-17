@@ -235,7 +235,7 @@ export default function Dashboard(props) {
   };
 
   return (
-    <Col span={24}>
+    <Col span={24} style={{marginTop:"80px"}}>
       <h1>Monitor Dashboard</h1>
       <Col span={24}>
         <Row gutter={[6, 6]}>

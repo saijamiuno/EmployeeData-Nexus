@@ -67,7 +67,7 @@ const App = (props) => {
     <div style={{height:"100vh",overflowX:"hidden"}}>
       <>
         {window.location.pathname !== "/" && (
-          <Header>
+          <Header style={{position:"fixed",width:"100%",zIndex:"100"}}>
             <Col span={24}>
               <div style={{ backgroundColor: "#8d99ae", height: "60px" }}>
                 <Row style={{ justifyContent: "right" }}>
