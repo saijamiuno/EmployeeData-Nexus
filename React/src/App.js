@@ -64,7 +64,7 @@ const App = (props) => {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className={darkMode ? "darkMode" : "lightMode"}>
+    <div style={{height:"100vh",overflowX:"hidden"}}>
       <>
         {window.location.pathname !== "/" && (
           <Header>
@@ -116,12 +116,7 @@ const App = (props) => {
                       USERS
                     </Button>
                   </Col>
-                  <Switch
-                    style={{ justifyContent: "end", marginTop: "15px" }}
-                    onChange={() => {
-                      setDarkMode(!darkMode);
-                    }}
-                  />
+                  
                 </Row>
               </div>
             </Col>
