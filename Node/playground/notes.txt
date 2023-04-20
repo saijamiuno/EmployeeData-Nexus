@@ -1,3 +1,42 @@
+// Database
+    - Oracle
+    - MySQL
+    - SQL Server
+RDBMS  - Relational Database Management Systems
+    - Tables, Columns and Rows
+         Table - stands for entity
+            - Person
+            - Users
+            - Courses
+    - Columns - fileds inside the table e.g Person 
+            - FirstName
+            - LastName
+            - Email 
+            - Mobile
+            - Address
+    - Rows 
+            - Actual Data
+
+Mongodb 
+
+Documents
+- is a simple key-value pair data
+- MongoDB valid document example
+- schema can be different for different documents
+{
+"firstname": "Sridhar" ,
+"Lastname": "Ram
+" Email": "email@test.com" } , 
+{
+"firstname": "Sridhar" ,
+" Lastname": "Ram
+• ": email@test.com" ,
+" Email "
+"Address": "JP Nagar Bangalore" }    
+
+
+
+
 Queries 
     - using find method of MongoDb with Operators
     - Eq 
