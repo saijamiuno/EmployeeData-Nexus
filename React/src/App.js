@@ -28,6 +28,7 @@ import Dashboard from "./Dashboard";
 import Login from "./Login";
 import EditUser from "./EditUser";
 import DemoApi from "./DemoApi";
+import DemoEmployeeData from "./DemoEmployeeData";
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -71,68 +72,85 @@ const App = (props) => {
           <Header style={{ position: "fixed", width: "100%", zIndex: "100" }}>
             <Col span={24}>
               <div style={{ backgroundColor: "#8d99ae", height: "60px" }}>
-                <Row style={{ justifyContent: "right" }}>
-                  <Col span={3} id="nav-links-container">
-                    <Button
-                      style={{
-                        backgroundColor: "#8d99ae",
-                        color: "#000",
-                        border: "0px",
-                        fontWeight: "600",
-                        fontSize: "20px",
-                        marginTop: "10px",
-                      }}
-                      onClick={() => (window.location.href = "/dashboard")}
-                    >
-                      DASHBOARD
-                    </Button>
-                  </Col>
-                  <Col span={2} id="nav-links-container">
-                    <Button
-                      style={{
-                        backgroundColor: "#8d99ae",
-                        color: "#000",
-                        border: "0px",
-                        fontSize: "20px",
-                        fontWeight: "600",
-                        marginTop: "10px",
-                      }}
-                      onClick={() => (window.location.href = "/homePage")}
-                    >
-                      HOME
-                    </Button>
-                  </Col>
-                  <Col span={2}>
-                    <Button
-                      style={{
-                        backgroundColor: "#8d99ae",
-                        color: "#000",
-                        border: "0px",
-                        fontSize: "20px",
-                        fontWeight: "600",
-                        marginTop: "10px",
-                      }}
-                      onClick={() => (window.location.href = "/usersTable")}
-                    >
-                      USERS
-                    </Button>
-                  </Col>
-                  <Col span={2}>
-                    <Button
-                      style={{
-                        backgroundColor: "#8d99ae",
-                        color: "#000",
-                        border: "0px",
-                        fontSize: "20px",
-                        fontWeight: "600",
-                        marginTop: "10px",
-                      }}
-                      onClick={() => (window.location.href = "/demoApi")}
-                    >
-                      Demo Data
-                    </Button>
-                  </Col>
-                </Row>
+                <Col span={24}>
+                  <Row style={{ justifyContent: "right" }}>
+                    <Col span={3} id="nav-links-container">
+                      <Button
+                        style={{
+                          backgroundColor: "#8d99ae",
+                          color: "#000",
+                          border: "0px",
+                          fontWeight: "600",
+                          fontSize: "20px",
+                          marginTop: "10px",
+                        }}
+                        onClick={() => (window.location.href = "/dashboard")}
+                      >
+                        DASHBOARD
+                      </Button>
+                    </Col>
+                    <Col span={2} id="nav-links-container">
+                      <Button
+                        style={{
+                          backgroundColor: "#8d99ae",
+                          color: "#000",
+                          border: "0px",
+                          fontSize: "20px",
+                          fontWeight: "600",
+                          marginTop: "10px",
+                        }}
+                        onClick={() => (window.location.href = "/homePage")}
+                      >
+                        HOME
+                      </Button>
+                    </Col>
+                    <Col span={2}>
+                      <Button
+                        style={{
+                          backgroundColor: "#8d99ae",
+                          color: "#000",
+                          border: "0px",
+                          fontSize: "20px",
+                          fontWeight: "600",
+                          marginTop: "10px",
+                        }}
+                        onClick={() => (window.location.href = "/usersTable")}
+                      >
+                        USERS
+                      </Button>
+                    </Col>
+                    <Col span={2}>
+                      <Button
+                        style={{
+                          backgroundColor: "#8d99ae",
+                          color: "#000",
+                          border: "0px",
+                          fontSize: "20px",
+                          fontWeight: "600",
+                          marginTop: "10px",
+                        }}
+                        onClick={() => (window.location.href = "/demoApi")}
+                      >
+                        Demo Data
+                      </Button>
+                    </Col>
+                    <Col span={2}>
+                      <Button
+                        style={{
+                          backgroundColor: "#8d99ae",
+                          color: "#000",
+                          border: "0px",
+                          fontSize: "20px",
+                          fontWeight: "600",
+                          marginTop: "10px",
+                        }}
+                        onClick={() => (window.location.href = "/demoExcel")}
+                      >
+                        Demo Employee Data
+                      </Button>
+                    </Col>
+                  </Row>
+                </Col>
               </div>
             </Col>
           </Header>
@@ -147,6 +165,7 @@ const App = (props) => {
             <Route path="/updateUserDetails/:id" element={<EditUser />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/demoApi" element={<DemoApi />} />
+            <Route path="/demoExcel" element={<DemoEmployeeData />} />
           </Routes>
         </BrowserRouter>
       </>
