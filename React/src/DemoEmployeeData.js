@@ -99,6 +99,48 @@ export default function DemoEmployeeData(props) {
     },
   ];
 
+
+  // const colums = [
+  //   {
+  //     title: "Year",
+  //     dataIndex: "Year",
+  //   },
+  //   {
+  //     title: "Industry_aggregation_NZSIOC",
+  //     dataIndex: "Industry_aggregation_NZSIOC",
+  //   },
+  //   {
+  //     title: "Industry_code_NZSIOC",
+  //     dataIndex: "Industry_code_NZSIOC",
+  //   },
+  //   {
+  //     title: "Industry_name_NZSIOC",
+  //     dataIndex: "Industry_name_NZSIOC",
+  //   },
+  //   {
+  //     title: "Units",
+  //     dataIndex: "Units",
+  //   },
+  //   {
+  //     title: "Variable_code",
+  //     dataIndex: "Variable_code",
+  //   },
+  //   {
+  //     title: "Variable_name",
+  //     dataIndex: "Variable_name",
+  //   },
+  //   {
+  //     title: "Variable_category",
+  //     dataIndex: "Variable_category",
+  //   },
+  //   {
+  //     title: "Value",
+  //     dataIndex: "Value",
+  //   },
+    
+  // ];
+  
+
   return (
     <div style={{ marginTop: "80px" }}>
       <Col span={24} className="fireFox">

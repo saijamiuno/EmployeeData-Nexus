@@ -58,6 +58,7 @@ async function getExcelData() {
   const db = client.db("CRUD");
   try {
     const result = await db.collection("demoData").find({});
+    // const result = await db.collection("annualSurvey").find({});
     const usersData = [];
     await result.forEach((element) => {
       usersData.push(element);
@@ -91,6 +92,7 @@ async function getUserById(id) {
   const client = await MongoClient.connect("mongodb://127.0.0.1:27017/");
   const db = client.db("CRUD");
   const collection = db.collection("demoData");
+  // const collection = db.collection("annualSurvey");
   const user = await collection.findOne({ _id: new ObjectId(id) });
   return user;
 }
