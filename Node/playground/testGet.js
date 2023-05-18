@@ -29,6 +29,7 @@ app.get("/get", async (req, res) => {
   res.status(200).json(users);
 });
 
-app.listen(3008, () => {
-  console.log("Server is running on port 3008");
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });

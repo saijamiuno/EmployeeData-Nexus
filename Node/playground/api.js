@@ -50,6 +50,26 @@ async function getData() {
     client.close();
   }
 }
+async function getExcelData() {
+  const client = await MongoClient.connect("mongodb://127.0.0.1:27017/", {
+    useNewUrlParser: true,
+  });
+
+  const db = client.db("CRUD");
+  try {
+    const result = await db.collection("demoData").find({});
+    // const result = await db.collection("annualSurvey").find({});
+    const usersData = [];
+    await result.forEach((element) => {
+      usersData.push(element);
+    });
+    return usersData;
+  } catch (error) {
+    console.log(`Error : ${error}`);
+  } finally {
+    client.close();
+  }
+}
 
 app.get("/getUserDetails", async (req, res) => {
   const users = await getData();
@@ -60,6 +80,19 @@ async function getUserById(id) {
   const client = await MongoClient.connect("mongodb://127.0.0.1:27017/");
   const db = client.db("CRUD");
   const collection = db.collection("dataJson");
+  const user = await collection.findOne({ _id: new ObjectId(id) });
+  return user;
+}
+app.get("/getExcel", async (req, res) => {
+  const users = await getExcelData();
+  res.status(200).json(users.sort((a, b) => b.createdAt - a.createdAt));
+});
+
+async function getUserById(id) {
+  const client = await MongoClient.connect("mongodb://127.0.0.1:27017/");
+  const db = client.db("CRUD");
+  const collection = db.collection("demoData");
+  // const collection = db.collection("annualSurvey");
   const user = await collection.findOne({ _id: new ObjectId(id) });
   return user;
 }

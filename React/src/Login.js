@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Col, Row, Button, Checkbox, Form, Input, Card, Space } from "antd";
+import React from "react";
+import { Col, Row, Button, Form, Input, Card} from "antd";
 import "./App.css";
-import login from "./Images/login.jpg";
 
 function Login() {
   const onFinish = (values) => {
@@ -13,7 +12,7 @@ function Login() {
 
   return (
     <div
-      className="body"
+      className="bodyy"
       // style={{
       //   backgroundImage: `url(${login})`,
       //   backgroundSize: "cover",
@@ -39,6 +38,7 @@ function Login() {
                 boxShadow: "0 4px 8px 0 rgba(0, 0, 8, 0.2)",
                 backgroundColor: "#c7c8cc",
                 border: "transparent",
+                marginTop:"25vh"
               }}
             >
               <center
@@ -107,7 +107,7 @@ function Login() {
 
                 <Form.Item>
                   <Button
-                    onClick={() => (window.location.href = "/homePage")}
+                    onClick={() => (window.location.href = "/dashboard")}
                     style={{
                       width: "100%",
                       backgroundColor: "#0958d9",

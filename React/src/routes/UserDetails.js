@@ -20,7 +20,7 @@ export default function UserDetails(props) {
   }, []);
 
   return (
-    <Col span={24}>
+    <Col span={24} style={{marginTop:"80px"}}>
       <Row justify={"space-between"}>
         <Col span={12} offset={8} style={{ justifyContent: "center" }}>
           <Card
