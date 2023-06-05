@@ -35,39 +35,39 @@ export default function UserDetails(props) {
             <Row justify="space-between">
               <Col>First Name:</Col>
               <Col>
-                <b style={{ textTransform: "capitalize" }}>{user.firstName}</b>
+                <b style={{ textTransform: "capitalize" }}>{user?.firstName}</b>
               </Col>
               <Divider style={{ margin: "15px 0" }} />
               <Col>Last Name:</Col>
               <Col>
-                <b style={{ textTransform: "capitalize" }}>{user.lastName}</b>
+                <b style={{ textTransform: "capitalize" }}>{user?.lastName}</b>
               </Col>
               <Divider style={{ margin: "15px 0" }} />
               <Col>Email:</Col>
               <Col>
-                <b style={{ textTransform: "capitalize" }}>{user.email}</b>
+                <b style={{ textTransform: "capitalize" }}>{user?.email}</b>
               </Col>
               <Divider style={{ margin: "15px 0" }} />
               <Col>Phone:</Col>
               <Col>
-                <b style={{ textTransform: "capitalize" }}>{user.phone}</b>
+                <b style={{ textTransform: "capitalize" }}>{user?.phone}</b>
               </Col>
               <Divider style={{ margin: "15px 0" }} />
               <Col>Date of Birth:</Col>
               <Col>
-                <b style={{ textTransform: "capitalize" }}>{user.dob}</b>
+                <b style={{ textTransform: "capitalize" }}>{user?.dob}</b>
               </Col>
               <Divider style={{ margin: "15px 0" }} />
               <Col>Designation:</Col>
               <Col>
                 <b style={{ textTransform: "capitalize" }}>
-                  {user.designation}
+                  {user?.designation}
                 </b>
               </Col>
               <Divider style={{ margin: "15px 0" }} />
               <Col>Comments:</Col>
               <Col>
-                <b style={{ textTransform: "capitalize" }}>{user.comments}</b>
+                <b style={{ textTransform: "capitalize" }}>{user?.comments}</b>
               </Col>
               <Divider style={{ margin: "15px 0" }} />
             </Row>

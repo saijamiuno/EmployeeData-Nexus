@@ -83,15 +83,15 @@ async function getUserById(id) {
   const user = await collection.findOne({ _id: new ObjectId(id) });
   return user;
 }
-app.get("/getExcel", async (req, res) => {
-  const users = await getExcelData();
-  res.status(200).json(users.sort((a, b) => b.createdAt - a.createdAt));
-});
+// app.get("/getExcel", async (req, res) => {
+//   const users = await getExcelData();
+//   res.status(200).json(users.sort((a, b) => b.createdAt - a.createdAt));
+// });
 
 async function getUserById(id) {
   const client = await MongoClient.connect("mongodb://127.0.0.1:27017/");
   const db = client.db("CRUD");
-  const collection = db.collection("demoData");
+  const collection = db.collection("dataJson");
   // const collection = db.collection("annualSurvey");
   const user = await collection.findOne({ _id: new ObjectId(id) });
   return user;
