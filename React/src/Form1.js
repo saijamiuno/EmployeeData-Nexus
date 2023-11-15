@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import {
   Form,
@@ -14,6 +14,7 @@ import {
 const { TextArea } = Input;
 
 export default function Form1() {
+  const [dob, setDob] = useState("");
   const onResetValues = () => {
     document.getElementById("myForm").reset();
   };
@@ -26,7 +27,7 @@ export default function Form1() {
       gender: values.gender,
       designation: values.designation,
       phone: values.phone,
-      dob: values.dob.format("DD/MM/YYYY"),
+      dob: dob,
       comments: values.comments,
       dataType: "form",
       createdAt: Date.now(),
@@ -201,7 +202,12 @@ export default function Form1() {
                     },
                   ]}
                 >
-                  <DatePicker format="DD/MM/YYYY" />
+                  <DatePicker
+                    onChange={(e) => {
+                      setDob(e);
+                    }}
+                    format="DD/MM/YYYY"
+                  />
                 </Form.Item>
 
                 <Form.Item

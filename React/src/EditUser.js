@@ -12,6 +12,7 @@ import {
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./App.css";
+import moment from "moment";
 
 const { TextArea } = Input;
 
@@ -20,9 +21,7 @@ export default function EditUser(props) {
   const { id } = useParams();
   console.log(id, "id");
   const [user, setUser] = useState([]);
-  console.log(user, "user");
-
-  useEffect(() => {}, []);
+  const [dob, setDob] = useState("");
 
   // const updateUserById = (id, data) => {
   //   console.log(data, "data");
@@ -50,14 +49,15 @@ export default function EditUser(props) {
     axios
       .get(`/getUserDetails/${id}`)
       .then((response) => {
-        console.log(response.data.dob, "response.data.dob");
+        if (response.data?.dob) {
+          setDob(response.data?.dob);
+        }
         form.setFieldsValue({
           firstName: response.data.firstName,
           lastName: response.data.lastName,
           email: response.data.email,
           gender: response.data.gender,
           phone: response.data.phone,
-          // dob: moment(response.data.dob).format("DD/MM/YYYY"),
           designation: response.data.designation,
           comments: response.data.comments,
           dataType: response.data.dataType,
@@ -65,6 +65,7 @@ export default function EditUser(props) {
         });
         setUser(response.data);
       })
+
       .catch((error) => {
         console.log(error);
       });
@@ -210,9 +211,7 @@ export default function EditUser(props) {
                 </Form.Item>
 
                 <Form.Item
-                  name="dob"
                   label="Date of Birth"
-                  initialValue={user && user.dob ? user.dob : ""}
                   rules={[
                     {
                       required: true,
@@ -220,11 +219,13 @@ export default function EditUser(props) {
                     },
                   ]}
                 >
-                  <DatePicker
+                  <Input
+                    name="neededBy"
+                    className="input-box2"
+                    placeholder="Needed by date"
+                    value={dob !== "" ? moment(dob).format("DD/MM/YYYY") : ""}
+                    readOnly
                     style={{ width: "100%" }}
-                    size={"large"}
-                    format="DD/MM/YYYY"
-                    defaultValue={user && user.dob ? user.dob : ""}
                   />
                 </Form.Item>
 
