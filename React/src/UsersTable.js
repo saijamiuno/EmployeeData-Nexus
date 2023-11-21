@@ -16,7 +16,7 @@ export default function UsersTable(props) {
   }, []);
 
   const getUsersData = async () => {
-    const { data } = await axios.get("/getUserDetails");
+    const { data } = await axios.get("/grades");
     setUsers(data);
     console.log(data, "data");
   };
