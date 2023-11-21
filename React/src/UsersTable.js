@@ -6,7 +6,6 @@ import {
   DeleteOutlined,
   PlusOutlined,
 } from "@ant-design/icons";
-import Headers from "./Headers";
 
 export default function UsersTable(props) {
   const [users, setUsers] = useState([]);
@@ -140,7 +139,7 @@ export default function UsersTable(props) {
   ];
 
   return (
-    <div style={{marginTop:"80px"}}>
+    <div style={{ marginTop: "80px" }}>
       <Col span={24} className="fireFox">
         <Row justify="space-between" gutter={[16, 16]}>
           <Col span={12}>
