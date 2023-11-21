@@ -45,6 +45,7 @@ export default function UsersTable(props) {
 
       onCell: (record) => ({
         onClick: () =>
+          // eslint-disable-next-line no-useless-concat
           (window.location.href = "/getUserDetails/" + `${record?._id}`),
       }),
       render: (firstName) => {

@@ -3,8 +3,7 @@ const { ObjectId, ServerApiVersion } = require("mongodb");
 
 const MongoClient = require("mongodb").MongoClient;
 
-const uri =
-  "mongodb+srv://saijami:3Yc7sJygq8r95ZEU@atlascluster.iotmmxp.mongodb.net/?retryWrites=true&w=majority";
+const uri = `mongodb+srv://saijami:EcUpT3Et6dpojJz3@atlascluster.iotmmxp.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true });
 mongoose = require("mongoose");
 
