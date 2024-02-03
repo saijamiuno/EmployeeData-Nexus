@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Lottie from "react-lottie";
 import {
   Form,
   Input,
@@ -11,23 +10,11 @@ import {
   Row,
   Card,
 } from "antd";
-import googleLoading from "./googleLoading.json";
-import moment from "moment";
-import Headers from "./Headers";
 
 const { TextArea } = Input;
 
 export default function Form1() {
-  const [show, setShow] = useState(false);
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: googleLoading,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
+  const [dob, setDob] = useState("");
   const onResetValues = () => {
     document.getElementById("myForm").reset();
   };
@@ -40,12 +27,13 @@ export default function Form1() {
       gender: values.gender,
       designation: values.designation,
       phone: values.phone,
-      dob: moment(values.dob).format("DD/MM/YYYY"),
+      dob: dob,
       comments: values.comments,
       dataType: "form",
       createdAt: Date.now(),
     });
-
+    // console.log(response, "response");
+    // return;
     if (response.status === 200) {
       alert("Your Response is Saved!!!!!!!!!");
       onResetValues();
@@ -56,7 +44,7 @@ export default function Form1() {
   };
 
   return (
-    <div style={{marginTop:"80px"}}>
+    <div style={{ marginTop: "80px" }}>
       <Col span={22} style={{ marginTop: "20px" }}>
         <Row justify={"end"}>
           <Button
@@ -166,10 +154,7 @@ export default function Form1() {
                         title: "Full-Stack-Developer",
                         value: "Full-Stack-Developer",
                       },
-                      {
-                        title: "Mobile-Developer",
-                        value: "Mobile-Developer",
-                      },
+                      { title: "Mobile-Developer", value: "Mobile-Developer" },
                       {
                         title: "Software Developer",
                         value: "Software-Developer",
@@ -186,14 +171,7 @@ export default function Form1() {
                         title: "Digital Marketing Analyst",
                         value: "Digital-Marketing-Analyst",
                       },
-                      {
-                        title: "SEO Specialist",
-                        value: "SEO-Specialist",
-                      },
-                      {
-                        title: "Digital Marketing Analyst",
-                        value: "Digital-Marketing-Analyst",
-                      },
+                      { title: "SEO Specialist", value: "SEO-Specialist" },
                       {
                         title: "Quality Assurance",
                         value: "Quality-Assurance",
@@ -224,7 +202,12 @@ export default function Form1() {
                     },
                   ]}
                 >
-                  <DatePicker format="DD/MM/YYYY" />
+                  <DatePicker
+                    onChange={(e) => {
+                      setDob(e);
+                    }}
+                    format="DD/MM/YYYY"
+                  />
                 </Form.Item>
 
                 <Form.Item

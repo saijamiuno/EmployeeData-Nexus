@@ -6,7 +6,6 @@ import {
   DeleteOutlined,
   PlusOutlined,
 } from "@ant-design/icons";
-import Headers from "./Headers";
 
 export default function UsersTable(props) {
   const [users, setUsers] = useState([]);
@@ -17,7 +16,7 @@ export default function UsersTable(props) {
   }, []);
 
   const getUsersData = async () => {
-    const { data } = await axios.get("/getUserDetails");
+    const { data } = await axios.get("/grades");
     setUsers(data);
     console.log(data, "data");
   };
@@ -46,6 +45,7 @@ export default function UsersTable(props) {
 
       onCell: (record) => ({
         onClick: () =>
+          // eslint-disable-next-line no-useless-concat
           (window.location.href = "/getUserDetails/" + `${record?._id}`),
       }),
       render: (firstName) => {
@@ -140,7 +140,7 @@ export default function UsersTable(props) {
   ];
 
   return (
-    <div style={{marginTop:"80px"}}>
+    <div style={{ marginTop: "80px" }}>
       <Col span={24} className="fireFox">
         <Row justify="space-between" gutter={[16, 16]}>
           <Col span={12}>

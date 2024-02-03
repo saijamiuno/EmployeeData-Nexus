@@ -1,8 +1,9 @@
 const express = require("express");
-const { ObjectId } = require("mongodb");
+const { ObjectId, ServerApiVersion } = require("mongodb");
 const { connection } = require("mongoose");
 const MongoClient = require("mongodb").MongoClient;
-const uri = "mongodb://127.0.0.1:27017/";
+const uri =
+  "mongodb+srv://user-4545:984966313@atlascluster-iotmmxp.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 mongoose = require("mongoose");
 
@@ -12,7 +13,7 @@ app.use(express.json());
 async function savetoDb(dataJson) {
   const db = client.db("CRUD");
   try {
-    const result = await db.collection("dataJson").insertOne(dataJson);
+    const result = await db.collection("test").insertOne(dataJson);
     console.log(`Saved response with ID: ${result.insertedId}`);
   } catch (err) {
     console.error(`Error : ${err}`);
@@ -32,13 +33,17 @@ app.post("/addForm", (req, res) => {
 });
 
 async function getData() {
-  const client = await MongoClient.connect("mongodb://127.0.0.1:27017/", {
-    useNewUrlParser: true,
+  const client = new MongoClient(uri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    },
   });
 
-  const db = client.db("CRUD");
+  const db = client.db("sample_geospatial");
   try {
-    const result = await db.collection("dataJson").find({});
+    const result = await db.collection("shipwrecks").find({});
     const usersData = [];
     await result.forEach((element) => {
       usersData.push(element);
@@ -73,7 +78,7 @@ async function getExcelData() {
 
 app.get("/getUserDetails", async (req, res) => {
   const users = await getData();
-  res.status(200).json(users.sort((a, b) => b.createdAt - a.createdAt));
+  res.status(200).json(users);
 });
 
 async function getUserById(id) {
@@ -83,15 +88,15 @@ async function getUserById(id) {
   const user = await collection.findOne({ _id: new ObjectId(id) });
   return user;
 }
-app.get("/getExcel", async (req, res) => {
-  const users = await getExcelData();
-  res.status(200).json(users.sort((a, b) => b.createdAt - a.createdAt));
-});
+// app.get("/getExcel", async (req, res) => {
+//   const users = await getExcelData();
+//   res.status(200).json(users.sort((a, b) => b.createdAt - a.createdAt));
+// });
 
 async function getUserById(id) {
   const client = await MongoClient.connect("mongodb://127.0.0.1:27017/");
   const db = client.db("CRUD");
-  const collection = db.collection("demoData");
+  const collection = db.collection("dataJson");
   // const collection = db.collection("annualSurvey");
   const user = await collection.findOne({ _id: new ObjectId(id) });
   return user;
