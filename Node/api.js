@@ -2,9 +2,8 @@ const express = require("express");
 const { ObjectId, ServerApiVersion } = require("mongodb");
 const { connection } = require("mongoose");
 const MongoClient = require("mongodb").MongoClient;
-const uri =
-  "mongodb+srv://user-4545:984966313@atlascluster-iotmmxp.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
+const uri = "mongodb://0.0.0.0:27017/";
+const client = new MongoClient(uri);
 mongoose = require("mongoose");
 
 const app = express();
